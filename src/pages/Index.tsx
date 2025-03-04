@@ -10,12 +10,6 @@ import Footer from '@/components/Footer';
 const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Add a class to the body for the dark theme
-    document.body.classList.add('dark-theme');
-    
-    return () => {
-      document.body.classList.remove('dark-theme');
-    };
   }, []);
 
   return (
@@ -24,7 +18,7 @@ const Index = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen flex flex-col bg-background text-foreground"
+      className="min-h-screen flex flex-col bg-background text-foreground subtle-pattern"
     >
       <Navbar />
       

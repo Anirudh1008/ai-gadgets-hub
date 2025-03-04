@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, ShoppingCart, User, Heart, Menu, X } from 'lucide-react';
+import { Search, ShoppingCart, User, Heart, Menu, X, Sparkles } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 
@@ -31,44 +31,49 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link 
           to="/" 
-          className="text-2xl font-bold ai-gradient"
+          className="flex items-center space-x-2"
         >
-          AITronics
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-2 rounded-lg">
+            <Sparkles className="h-5 w-5" />
+          </div>
+          <span className="text-xl font-bold ai-gradient">AITronics</span>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-sm font-medium text-gray-800 hover:text-primary transition-colors">
+          <Link to="/" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors">
             Home
           </Link>
-          <Link to="/new" className="text-sm font-medium text-gray-800 hover:text-primary transition-colors">
+          <Link to="/new" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors">
             New
           </Link>
-          <Link to="/used" className="text-sm font-medium text-gray-800 hover:text-primary transition-colors">
+          <Link to="/used" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors">
             Used
           </Link>
-          <Link to="/sell" className="text-sm font-medium text-gray-800 hover:text-primary transition-colors">
+          <Link to="/sell" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors">
             Sell
           </Link>
-          <Link to="/trade" className="text-sm font-medium text-gray-800 hover:text-primary transition-colors">
+          <Link to="/trade" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors">
             Trade
           </Link>
-          <Link to="/shops" className="text-sm font-medium text-gray-800 hover:text-primary transition-colors">
+          <Link to="/shops" className="text-sm font-medium text-gray-700 hover:text-primary transition-colors">
             Shops
           </Link>
         </nav>
         
-        <div className="hidden md:flex items-center space-x-4">
-          <Button variant="ghost" size="icon" className="rounded-full transition-all hover:bg-gray-100">
-            <Search className="h-5 w-5" />
+        <div className="hidden md:flex items-center space-x-3">
+          <Button variant="ghost" size="icon" className="rounded-full transition-all hover:bg-blue-50">
+            <Search className="h-5 w-5 text-gray-600" />
           </Button>
-          <Button variant="ghost" size="icon" className="rounded-full transition-all hover:bg-gray-100">
-            <Heart className="h-5 w-5" />
+          <Button variant="ghost" size="icon" className="rounded-full transition-all hover:bg-blue-50">
+            <Heart className="h-5 w-5 text-gray-600" />
           </Button>
-          <Button variant="ghost" size="icon" className="rounded-full transition-all hover:bg-gray-100">
-            <ShoppingCart className="h-5 w-5" />
+          <Button variant="ghost" size="icon" className="rounded-full transition-all hover:bg-blue-50 relative">
+            <ShoppingCart className="h-5 w-5 text-gray-600" />
+            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-primary text-[10px] text-white flex items-center justify-center">3</span>
           </Button>
-          <Button variant="ghost" size="icon" className="rounded-full transition-all hover:bg-gray-100">
-            <User className="h-5 w-5" />
+          <Button className="bg-blue-50 hover:bg-blue-100 text-blue-700">
+            <User className="h-4 w-4 mr-1" />
+            Sign In
           </Button>
         </div>
         
@@ -85,7 +90,7 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 z-40 glass animate-slide-down md:hidden py-4 px-6">
+        <div className="absolute top-full left-0 right-0 z-40 glass-light animate-slide-down md:hidden py-4 px-6">
           <nav className="flex flex-col space-y-4">
             <Link to="/" className="text-sm font-medium text-gray-800 py-2" onClick={() => setIsMobileMenuOpen(false)}>
               Home

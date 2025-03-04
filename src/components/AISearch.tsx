@@ -48,18 +48,18 @@ const AISearch = () => {
       ref={searchRef}
       className={cn(
         "relative w-full max-w-2xl transition-all duration-300 ease-in-out",
-        isFocused ? "scale-105" : "scale-100"
+        isFocused ? "scale-[1.02]" : "scale-100"
       )}
     >
       <div 
         className={cn(
-          "flex items-center bg-white border rounded-xl px-4 py-3 transition-all duration-300",
+          "flex items-center bg-white border rounded-2xl px-5 py-4 transition-all duration-300",
           isFocused 
             ? "shadow-lg border-blue-300 ring-2 ring-blue-100" 
             : "shadow-md hover:shadow-lg border-gray-200"
         )}
       >
-        <Search className="h-5 w-5 text-gray-400 mr-2" />
+        <Search className="h-5 w-5 text-gray-400 mr-3" />
         
         <input
           type="text"
@@ -70,10 +70,10 @@ const AISearch = () => {
           onFocus={() => setIsFocused(true)}
         />
         
-        <div className="flex items-center space-x-2 ml-2">
+        <div className="flex items-center space-x-3 ml-3">
           <button 
             className={cn(
-              "p-1.5 rounded-full transition-all",
+              "p-2 rounded-full transition-all",
               isListening 
                 ? "bg-red-100 text-red-500 animate-pulse" 
                 : "bg-gray-100 text-gray-500 hover:bg-gray-200"
@@ -85,8 +85,8 @@ const AISearch = () => {
           
           <div className="h-6 w-px bg-gray-200"></div>
           
-          <button className="flex items-center space-x-1 bg-blue-50 hover:bg-blue-100 text-blue-600 px-2 py-1 rounded-md transition-all text-xs font-medium">
-            <Sparkles className="h-3 w-3" />
+          <button className="flex items-center space-x-1.5 gradient-bg text-white px-3 py-1.5 rounded-lg transition-all text-xs font-medium hover-lift">
+            <Sparkles className="h-3.5 w-3.5" />
             <span>AI Search</span>
           </button>
         </div>
@@ -94,19 +94,19 @@ const AISearch = () => {
       
       {/* Dropdown suggestions */}
       {isFocused && (
-        <div className="absolute z-10 left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in">
-          <div className="px-3 py-2">
-            <p className="text-xs font-medium text-gray-500 mb-2">AI Suggestions</p>
+        <div className="absolute z-10 left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-gray-100 py-3 animate-fade-in">
+          <div className="px-4 py-2">
+            <p className="text-xs font-medium text-gray-500 mb-3">AI Suggestions</p>
             {suggestions.map((suggestion, index) => (
               <div 
                 key={index}
-                className="flex items-center px-3 py-2 hover:bg-gray-50 rounded-md cursor-pointer"
+                className="flex items-center px-4 py-2.5 hover:bg-blue-50 rounded-lg cursor-pointer"
                 onClick={() => {
                   setSearchQuery(suggestion);
                   setIsFocused(false);
                 }}
               >
-                <Search className="h-4 w-4 text-gray-400 mr-2" />
+                <Search className="h-4 w-4 text-blue-500 mr-3" />
                 <span className="text-sm text-gray-800">{suggestion}</span>
               </div>
             ))}
